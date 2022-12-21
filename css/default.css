@@ -1,97 +1,11 @@
-@charset 'utf-8';
-
-body, header, footer, main, section, artcle, p, address, h1, h2, h3, h4, h5, h6,nav, div, form, fieldset, legend, table, tbody, th, td, ol, ul, li, dl, dt, dd, input, button, figure, figcaption {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
+@charset "utf-8";
+body, header, footer, main, section, article, p, address, h1, h2, h3, h4, h5, h6, nav, div, form, fieldset, legend, table, tbody, th, td, ol, ul, li, dl, dt, dd, input, button, figure, figcaption{
+	margin:0px;   padding:0px;
 }
-
-ol, ul {
-    list-style: none;
-}
-
-img{
-    display: block;
-    border: 0px;
-}
-
-/* button {
-    border: 0px;
-} */
-
-a {
-    text-decoration: none;
-}
-
-legend, caption {
-    display: none;
-}
-
-table {
-    border-collapse: collapse;
-    border-spacing: 0px;
-}
-
-body {
-    box-sizing: border-box;
-}
-
-hr,legentd, caption {
-    display: none;
-}
-
-em, address, i {
-    font-style: normal;
-}
-
-h1, h2, h3, h4, h5, h6, strong, th , b {
-    font-weight: normal;
-    font-size: 1em;
-}
-
-th {
-    text-align: left;
-}
-
-q::before, q::after {
-    content: "";
-}
-textarea {
-    resize: none;
-}
-
-
-@font-face {
-    font-family: 'PuradakGentleGothicR';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.1/PuradakGentleGothicR.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Cafe24Ohsquare';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/Cafe24Ohsquare.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'MICEGothic Bold';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-01@1.0/MICEGothic Bold.woff2') format('woff2');
-    font-weight: 700;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'BMEuljirooraeorae';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/BMEuljirooraeorae.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Cafe24Ssurround';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
+ol, ul{   list-style:none;   }
+img{     display:block;   border:0px;   }
+a{    text-decoration:none;    }
+address{    font-style:normal;    }
+button, fieldset{   border:0px;   }
+legend, caption, hr{   display:none;    }
+table{   border-collapse:collapse;   border-spacing:0px;   }
