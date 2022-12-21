@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="KO">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>모이라 menu</title>
+    <link rel="stylesheet" href="css/mo2ra.css">
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
+    <!-- Demo styles -->
+    <style>
+      
+
+      .swiper {
+        margin: 100px auto;
+        width: 200px;
+        height: 240px;
+        padding-top: 100px;
+        transform: scale(1.5);
+      }
+
+      .swiper-slide {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        font-weight: bold;
+        color: #ededed;
+      }
+      h1{
+            position: absolute;
+            left: 50%; top:5px; transform: translateX(-50%);
+            color: #fff;
+            z-index: 1000;
+            width: 200px; height: 39px;
+
+      }
+      #sect>h1>img{
+            width: 200px; height: 39px;
+      }
+      .sel{
+        font-size: 1.5rem;
+        text-align: center;
+        color: #fff;
+      }
+      
+
+      .swiper-slide:nth-child(1n) {
+        
+      }
+
+      .swiper-slide:nth-child(2n) {
+        
+      }
+
+      .swiper-slide:nth-child(3n) {
+        
+      }
+
+      .swiper-slide:nth-child(4n) {
+        
+      }
+
+      .swiper-slide:nth-child(5n) {
+        background-color: rgb(118, 163, 12);
+      }
+
+      .swiper-slide:nth-child(6n) {
+        background-color: rgb(180, 10, 47);
+      }
+
+      .swiper-slide:nth-child(7n) {
+        background-color: rgb(35, 99, 19);
+      }
+
+      .swiper-slide:nth-child(8n) {
+        background-color: rgb(0, 68, 255);
+      }
+
+      .swiper-slide:nth-child(9n) {
+        background-color: rgb(218, 12, 218);
+      }
+
+      .swiper-slide:nth-child(10n) {
+        background-color: rgb(54, 94, 77);
+      }
+      .pic3 img{
+        width: 90%;
+      }
+      .pic3{
+        margin-left: 20px;
+      }
+      
+    </style>
+  </head>
+
+  <body>
+    <!-- Swiper -->
+<section id="sect">
+  <h1> <img src="img/moira3.png" alt=""></h1>
+    <div class="swiper mySwiper2">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><a href="index.html" class=""><img src="img/menu01.png" alt=""> </a></div>
+        <div class="swiper-slide"><a href="index.html" class=""><img src="img/menu02.png" alt=""> </a></div>
+        <div class="swiper-slide"><a href="index.html" class="pic3"><img src="img/menu03.png" alt=""></a></div>
+        <div class="swiper-slide"><a href="index.html" class="pic3"><img src="img/menu04.png" alt=""></a></div>
+        <div class="swiper-slide">Slide 5</div>
+        <div class="swiper-slide">Slide 6</div>
+        <div class="swiper-slide">Slide 7</div>
+        <div class="swiper-slide">Slide 8</div>
+        <div class="swiper-slide">Slide 9</div>
+      </div>
+    </div>
+    <div class="sel" style="text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;">운명의 게임 선택</div>
+</section>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+
+      var swiper2 = new Swiper(".mySwiper2", {
+        grabCursor: true,
+        effect: "creative",
+        creativeEffect: {
+          prev: {
+            shadow: true,
+            translate: ["-120%", 0, -500],
+          },
+          next: {
+            shadow: true,
+            translate: ["120%", 0, -500],
+          },
+        },
+      });
+    
+    </script>
+  </body>
+</html>
