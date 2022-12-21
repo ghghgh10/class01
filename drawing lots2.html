@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- <link rel="stylesheet" href="css/mo2ra.css"> -->
+    <title>Drawing Lots</title>
+    <style>
+      
+
+
+    </style>
+  </head>
+  <body>
+  <form id="participantForm">
+  <label for="participantName">Enter participant name:</label>
+  <input type="text" id="participantName">
+  <button type="submit">Add</button>
+  <label for="numWinners">Enter the number of winners:</label>
+<input type="text" id="numWinners">
+
+</form>
+
+<script>
+  var participants = [];
+  document.getElementById("participantForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // prevent the form from being submitted
+    var participantName = document.getElementById("participantName").value;
+    participants.push(participantName);
+  });
+  document.getElementById("numWinners").addEventListener("change", function() {
+  var numWinners = parseInt(this.value);
+  if (isNaN(numWinners) || numWinners < 1 || numWinners > participants.length) {
+    // display an error message
+  } else {
+    // proceed with the selection of winners
+  }
+});
+  for (var i = 0; i < numWinners; i++) {
+  var randomIndex = Math.floor(Math.random() * participants.length);
+  var winner = participants[randomIndex];
+  // add the winner to a separate array or display their name to the user
+}
+
+
+</script>
+
+
+   
+  </body>
+</html>

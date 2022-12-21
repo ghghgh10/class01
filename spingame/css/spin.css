@@ -1,0 +1,373 @@
+@charset "utf-8";
+@font-face {
+    font-family: 'HBIOS-SYS';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2207-01@1.0/HBIOS-SYS.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TTTtangsbudaejjigaeB';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/TTTtangsbudaejjigaeB.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    width: 300px;
+    height: 300px;
+    background: rgb(2, 2, 2);
+    border-radius: 50%;
+    border: 15px solid rgb(5, 5, 5);
+    position: relative;
+    overflow: hidden;
+    /* transition: 5s; */
+}
+
+
+/*& 20개짜리 */
+/* .container div {
+    height: 50%;
+    width: 50px;
+    position: absolute;
+    clip-path: polygon(100% 0, 50% 100%, 0 0);
+    transform: translateX(-50%);
+    transform-origin: bottom;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    left: 110px;
+}
+
+.container .roulette_1 {
+    background: deeppink;
+    left: 50%;
+}
+
+.container .roulette_2 {
+    background: chartreuse;
+    transform: rotate(18deg);
+}
+
+.container .roulette_3 {
+    background: chocolate;
+    transform: rotate(36deg);
+}
+
+.container .roulette_4 {
+    background: red;
+    transform: rotate(54deg);
+}
+
+.container .roulette_5 {
+    background: yellow;
+    transform: rotate(72deg);
+}
+
+.container .roulette_6 {
+    background: deepskyblue;
+    transform: rotate(90deg);
+}
+
+.container .roulette_7 {
+    background: cyan;
+    transform: rotate(108deg);
+}
+
+.container .roulette_8 {
+    background: darkviolet;
+    transform: rotate(126deg);
+}
+
+.container .roulette_9 {
+    background: green;
+    transform: rotate(144deg);
+}
+
+.container .roulette_10 {
+    background: chocolate;
+    transform: rotate(162deg);
+}
+
+.container .roulette_11 {
+    background: orangered;
+    transform: rotate(180deg);
+}
+
+.container .roulette_12 {
+    background: gray;
+    transform: rotate(198deg);
+}
+
+.container .roulette_13 {
+    background: darkslategrey;
+    transform: rotate(216deg);
+}
+
+.container .roulette_14 {
+    background: cornflowerblue;
+    transform: rotate(234deg);
+}
+
+.container .roulette_15 {
+    background: darkgoldenrod;
+    transform: rotate(252deg);
+}
+
+.container .roulette_16 {
+    background: violet;
+    transform: rotate(270deg);
+}
+
+.container .roulette_17 {
+    background: silver;
+    transform: rotate(288deg);
+}
+
+.container .roulette_18 {
+    background: saddlebrown;
+    transform: rotate(306deg);
+}
+
+.container .roulette_19 {
+    background: goldenrod;
+    transform: rotate(324deg);
+}
+
+.container .roulette_20 {
+    background: blue;
+    transform: rotate(342deg);
+} */
+
+.arrow {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    left: 50%;
+    top: 15%;
+    transform: translate(-50%, -20%);
+    background: url('../img/141_anwansoon.png') no-repeat;
+    background-size: cover;
+    z-index: 100;
+    animation: shosho 1s infinite;
+}
+
+
+.tname {
+    width: 200px;
+    height: 100px;
+    font-family: 'HBIOS-SYS';
+    position: absolute;
+    left: 50%;
+    top: 15%;
+    transform: translate(-30%, -20%);
+    display: none;
+    animation: shosho 1s infinite;
+}
+
+@keyframes shosho {
+    0% {
+        opacity: 0;
+    }
+}
+
+
+
+
+#spin{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    background: #000;
+    text-transform: uppercase;
+    border: 4px solid crimson;
+    font-weight: bold;
+    color: #fff;
+
+}
+
+.modal {
+    width: 200px;
+    height: 200px;
+    background: rgba(0, 0, 0, 0.9);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    color: #fff;
+    display: none;
+    transition: 0.8s;
+}
+
+.modal> .modaltext {
+    color: #fff;
+    text-align: center;
+    line-height: 170px;
+    font-size: 20px;
+}
+
+.closebtn {
+    font-family: 'TTTtangsbudaejjigaeB';
+    width: 100px;
+    height: 30px;
+    background: deeppink;
+    border: 1px solid deepskyblue;
+    color: #fff;
+    position: absolute;
+    left: 50%;
+    bottom: 10%;
+    transform: translate(-50%);
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.maingobtn {
+    font-family: 'TTTtangsbudaejjigaeB';
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    width: 100px;
+    height: 30px;
+    background: deepskyblue;
+    border: 1px solid deeppink;
+    color: #fff;
+    position: absolute;
+    left: 50%;
+    bottom: 17%;
+    line-height: 30px;
+    transform: translate(-50%);
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+/*& 8개일때 */
+
+.container div {
+    height: 50%;
+    width: 120px;
+    position: absolute;
+    clip-path: polygon(100% 0, 50% 100%, 0 0);
+    transform: translateX(-50%);
+    transform-origin: bottom;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    left: 74px;
+}
+
+.spingo {
+    animation: kiki 0.1s infinite;
+    animation-fill-mode: forwards;
+}
+
+@keyframes kiki {
+    0% {
+        transform: rotate(0deg); 
+        transition-timing-function: ease-out;
+    }
+
+    100% {
+        transform: rotate(360deg); 
+    }
+}
+
+.howu {
+    animation: hou 0.4s infinite;
+    animation-fill-mode: forwards;
+}
+
+@keyframes hou {
+    0% {
+        background-color: deeppink;
+    }
+
+    30% {
+        background-color: deepskyblue;
+    }
+
+    60% {
+        background-color: yellow;
+    }
+
+    100% {
+        background-color: blueviolet;
+    }
+}
+
+
+.container .roulette_1 {
+    background: deeppink;
+    transform: rotate(0deg);
+    /* left: 50%; */
+}
+
+.container .roulette_2 {
+    background: chartreuse;
+    transform: rotate(45deg);
+
+}
+
+.container .roulette_3 {
+    background: chocolate;
+    transform: rotate(90deg);
+}
+
+.container .roulette_4 {
+    background: red;
+    transform: rotate(135deg);
+}
+
+.container .roulette_5 {
+    background: yellow;
+    transform: rotate(180deg);
+}
+
+.container .roulette_6 {
+    background: deepskyblue;
+    transform: rotate(225deg);
+}
+
+.container .roulette_7 {
+    background: cyan;
+    transform: rotate(270deg);
+}
+
+.container .roulette_8 {
+    background: darkviolet;
+    transform: rotate(315deg);
+}
