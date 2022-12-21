@@ -1,0 +1,13 @@
+@charset "utf-8";
+body,section,header,nav,footer,div,h1,h2,h3,ul,li,ol,address,blockquote,fieldset,legend,input,textarea,select,button,main,dl,dd,article{ margin:0px; padding:0px; }
+ul,ol{ list-style:none; }
+a{ text-decoration:none; }
+table{ border-collapse:collapse; border-spacing:0px; }
+hr,legend,caption{ display:none }
+img{ border:0px; display:block; }
+fieldset,button{ border:0px; }
+em,address,i{ font-style:normal; }
+h1,h2,h3,h4,h5,h6,strong,th,b{ font-weight:normal; font-size:1em; }
+th{ text-align:left; }
+q::before,q::after{ content:""; }
+textarea{ resize:none; }

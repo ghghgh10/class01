@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- <link rel="stylesheet" href="css/mo2ra.css"> -->
+    <title>Drawing Lots</title>
+    <style>
+      /* Add some styling for the winners */
+      .winner {
+        color: red;
+        font-weight: bold;
+        background: url("img/bg.png") no-repeat;
+        background-size: contain;
+        width: 100px; height: 150px;
+        display:flex; 
+        align-items: center; 
+        justify-content: center;
+        flex-wrap: wrap;
+        text-indent: -9999999px;
+        cursor: pointer;
+        letter-spacing: 0.8px;
+      }
+      .winner:hover{
+        text-indent: 0px;
+        background: url("img/pngwing.com (14).png") no-repeat;
+        background-size: contain;
+      }
+      .name{
+        width: 80px; height: 30px;
+        display:flex; flex-direction: row;
+        color: #333;
+         align-items: center; flex-wrap: wrap;
+         
+       
+      }
+      #results{
+         display:flex; flex-wrap: wrap;
+         
+      }
+      ul{
+        display: flex; flex-wrap: wrap;
+        
+      }
+      #form{
+        display: flex; justify-content: center; align-items: center;
+        flex-direction: column; width: 360px;
+
+      }
+
+    </style>
+  </head>
+  <body>
+    <!-- Create a form to allow the user to enter the number of participants and the number of winners -->
+    <form id="form">
+      <label for="numParticipants">게임에 참여 인원수를 입력해주세요</label><br>
+      <input type="number" id="numParticipants" name="numParticipants" min="1" max="10"><br>
+      <label for="numWinners">당첨자 인원수를 입력해주세요</label><br>
+      <input type="number" id="numWinners" name="numWinners" min="1" max="10"><br>
+      <button type="button" onclick="pickWinners()">제비뽑기</button>
+    </form>
+
+
+    <!-- Create a container to hold the list of participants and the winners -->
+    <div id="results"></div>
+
+    <script>
+      // Function to pick the winners
+      function pickWinners() {
+        // Get the number of participants and winners from the form input
+        const numParticipants = document.getElementById('numParticipants').value;
+        const numWinners = document.getElementById('numWinners').value;
+
+        // Create an array of participants with anonymous names
+        const participants = Array.from({ length: numParticipants }, (_, i) => `참가자 ${i + 1}`);
+
+        // Use the Fisher-Yates shuffle to randomly shuffle the array
+        for (let i = participants.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [participants[i], participants[j]] = [participants[j], participants[i]];
+        }
+
+        // Get the results container
+        const resultsContainer = document.getElementById('results');
+
+        // Clear the container
+        resultsContainer.innerHTML = '';
+
+        // Add the participants to the container
+        const participantsList = document.createElement('ul');
+        participantsList.innerHTML = '<li class="name">' + participants.slice(0, numParticipants).join('</li><li class="name">') + '</li>';
+        resultsContainer.appendChild(participantsList);
+
+
+        /*participants.forEach(participant => {
+          const li = document.createElement('li');
+          li.textContent = participant;
+          participantsList.appendChild(li);
+        });
+        resultsContainer.appendChild(participantsList);*/
+
+        // Add the winners to the container
+        const winnersList = document.createElement('ul');
+        winnersList.innerHTML = '<li class="winner">' + participants.slice(0, numWinners).join('</li><li class="winner">') + '</li>';
+        resultsContainer.appendChild(winnersList);
+      }
+
+     const card=document.getElementsByClassName("winner"); console.log(card);
+
+
+      card.onclick=()=>{
+        console.log('hi')
+          //document.getElementsByClassName("winner").style.textIndent = "0";
+      };
+    </script>
+  </body>
+</html>
