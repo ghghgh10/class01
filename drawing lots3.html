@@ -11,18 +11,29 @@ function generateWinners() {
   // Get the input values
   const numPeople = document.getElementById("numPeople").value;
   const numWinners = document.getElementById("numWinners").value;
-
+  const list = document.getElementById("list")
 
   // Generate an array of people
   const people = [];
   for (let i = 1; i <= numPeople; i++) {
     people.push(i);
+    console.log(people);
+    console.log(numWinners);
+   /* if ( i <= numWinners){
+            event.preventDefault()
+            list.innerText = '인원을 다시 설정해라';
+        }else{
+          
+        }*/
   }
+
 
   // Shuffle the array
   for (let i = people.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [people[i], people[j]] = [people[j], people[i]];
+    
+
   }
 
   // Select the winners
@@ -153,6 +164,7 @@ button:hover {
   padding: 20px;
   font-size: 15px;
   color: red;
+  text-align: center;
 }
 .but{
   margin-top: -15px;
