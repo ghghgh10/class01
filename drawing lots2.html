@@ -18,10 +18,12 @@
   <label for="participantName">Enter participant name:</label>
   <input type="text" id="participantName">
   <button type="submit">Add</button>
-  <label for="numWinners">Enter the number of winners:</label>
-<input type="text" id="numWinners">
-
 </form>
+<label for="numWinners">Enter the number of winners:</label>
+<input type="text" id="numWinners">
+<button id="shuffleButton">Shuffle and Select Winners</button>
+
+
 
 <script>
   var participants = [];
@@ -38,11 +40,8 @@
     // proceed with the selection of winners
   }
 });
-  for (var i = 0; i < numWinners; i++) {
-  var randomIndex = Math.floor(Math.random() * participants.length);
-  var winner = participants[randomIndex];
-  // add the winner to a separate array or display their name to the user
-}
+  document.getElementById("shuffleButton").addEventListener("click", function() {
+  for (var i = 0; i < numWinners; i)
 
 
 </script>
