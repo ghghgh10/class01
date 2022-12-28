@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="KO">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+	<title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+	<style>
+  #food-box,#food-box2 {
+    width: 300px;
+    height: 300px;
+    border: 1px solid black;
+    cursor: pointer;
+    margin: 50px auto;
+    
+
+  }
+  #food-box-inner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  #food-text,#food-text2 {
+    transition: transform 0.5s;
+    font-size: 1.5rem;
+    color: #f60;
+  }
+  #food-box:hover #food-text,#food-box2:hover #food-text2 {
+    transform: scale(1.2);
+  }
+  #food-image,#food-image2 {
+    width: 200px;
+    height: 200px;
+    background-color: white;
+    border: 1px solid black;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+  #food-image img,#food-image2 img {
+    width: 100%;
+    height: 100%;
+  }
+
+.tab_box{width: 350px; height: 600px; box-sizing:border-box; margin-top: 100px}
+.tab_box>.tab_btns{ height:40px; }
+.tab_box>.tab_btns>a{
+  display:block;  width:100px;  height:40px;  background:#777;
+  border:1px solid #222;  border-bottom:0px;  float:left;
+  text-align:center;  line-height:40px;  font-weight:bold;
+}
+.tab_box>.tab_btns>a:nth-child(2){  margin-left:-1px; }
+.tab_box>.tab_btns>a.active{  background:#fff;  }
+
+#box1{ 
+  height:400px;  background:#fff;  border:1px solid #222;  font-size:12px;
+}
+#box2{ 
+  height:400px;  background:#fff;  border:1px solid #222;  display:none;
+}
+
+
+.flip{
+  animation: flip 0.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) 1 alternate both;
+}
+@keyframes flip{
+  0% {
+   transform: rotateY(0);
+  }
+  100% {
+  transform: rotateY(-720deg);
+  }
+}
+</style>
+	
+</head>
+<body>
+	 <header>
+    <nav>
+        <div class="tab_box">
+          <div class="tab_btns">
+            <a href="#box1" >식사</a>
+            <a href="#box2">디저트</a>
+          </div>
+          <div id="box1">
+           <div id="food-box">
+                <div id="food-box-inner">
+                  <p id="food-text">랜덤 선택 후회없기</p>
+                  <div id="food-image" ></div>
+                </div>
+               
+              </div>
+
+          </div>
+          <div id="box2">
+             <div id="food-box2">
+              <div id="food-box-inner">
+                <p id="food-text2">랜덤 선택 후회없기</p>
+                <div id="food-image2"></div>
+              </div>
+          
+          </div>
+        </div>
+  </div>
+
+  </nav>
+  </header>
+	<script>
+		// Generate a random number between min and max (inclusive)
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+// Display a random food suggestion and image
+function showFood() {
+  const foods = [
+    { name: '피자', image: 'pizza.jpg' },
+    { name: '햄버거', image: 'Hamburger.jpg' },
+    { name: '초밥', image: 'Sushi.webp' },
+    { name: '타코', image: 'Taco.jpg' },
+    { name: '치킨', image: 'chicken.jpg' },
+    { name: '스파게티', image: 'Spaghetti.jpg' },
+    { name: '돼지국밥', image: 'Soup.png' },
+    { name: '샌드위치', image: 'Sandwich.jpg' },
+    { name: '샐러드', image: 'Salad.jpg' },
+    { name: '편의점', image: 'com.jpg' },
+    { name: '김치찌개', image: 'kimchi.jpg' },
+    { name: '된장찌개', image: 'dong.jpg' },
+    { name: '돈까스', image: 'don.jpg' },
+    { name: '뼈다귀 해장국', image: 'bon.jpg' },
+  ];
+  const foodIndex = getRandomInt(0, foods.length - 1);
+  const foodText = document.getElementById('food-text');
+  foodText.innerHTML = foods[foodIndex].name;
+  const foodImage = document.getElementById('food-image');
+  foodImage.innerHTML = '<img src="img/food/' + foods[foodIndex].image + '">';
+}
+// Toggle the flip class on the box to animate the flip
+function toggleFlip() {
+  const foodBox = document.getElementById('food-box');
+  foodBox.classList.toggle('flip');
+  console.log(toggleFlip);
+}
+// Show a food suggestion when the box is clicked
+const foodBox = document.getElementById('food-box');
+foodBox.addEventListener('click', function() {
+  toggleFlip();
+  showFood();
+});
+
+
+
+	</script>
+</body>
+</html>

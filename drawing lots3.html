@@ -13,6 +13,7 @@ function generateWinners() {
   const numWinners = document.getElementById("numWinners").value;
   const list = document.getElementById("list")
 
+
   // Generate an array of people
   const people = [];
   for (let i = 1; i <= numPeople; i++) {
@@ -56,6 +57,7 @@ function generateWinners() {
     card.style.order = Math.floor(Math.random() * numPeople);
 
     card.addEventListener("click", flipCard);
+   
     cards.appendChild(card);
 
   }
@@ -66,13 +68,24 @@ function generateWinners() {
 
   function flipCard() {
   this.classList.toggle("flipped");
+  var audio = document.getElementById('audio_play')
+     audio.play(); 
+  
+
 /*  const list = document.getElementById("list")
   list.innerText = winners;*/
   
 }
 
 }
-
+window.onload = function() {
+document.querySelector(".but_on").addEventListener("click", function () {
+  var audio1 = new Audio("bgm/lot_bg.mp3");
+  audio1.loop = true; // 반복재생
+  audio1.volume = 0.5; // 음량 설정
+  audio1.play(); // sound1.mp3 재생
+});
+}
   </script>
   <style type="text/css">
     body {
@@ -100,6 +113,7 @@ input[type="number"] {
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  text-align: center;
 }
 
 button {
@@ -178,7 +192,9 @@ button:hover {
     transform: scale(2);
   }
 }
-
+#audio_play{
+  display: none;
+}
 
   </style>
 
@@ -187,7 +203,7 @@ button:hover {
     <form>
       참여인원을 입력해주세요: <input type="number" id="numPeople" value="12"><br>
       당첨자인원을 입력해주세요: <input type="number" id="numWinners" value="2"><br>
-      <button type="button" onclick="generateWinners()">제비뽑기GO</button>
+      <button type="button" onclick="generateWinners()" class="but_on">제비뽑기GO</button>
     </form>
      <form class="but">
         <input type="button" value="다시시작" onClick="window.location.reload()">
@@ -197,5 +213,6 @@ button:hover {
       <div id="result"></div>
     </div>
     <div id="list"></div>
+    <audio id='audio_play' src='bgm/mag.wav'>
   </body>
 </html>
