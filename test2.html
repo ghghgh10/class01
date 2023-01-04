@@ -22,18 +22,7 @@
   <button type="button" id="button">button</button>
   </section>
 	<script>
-val geolocationCallback: GeolocationPermissions.Callback? = null
 
-webView.setWebChromeClient(new WebChromeClient(){
-    @Override
-    public void onGeolocationPermissionsShowPrompt(String origin, GeolocationPermissions.Callback callback) {
-        super.onGeolocationPermissionsShowPrompt(origin, callback);
-        //필요한 시점에 invoke() 함수 호출을 하기위해 변수 저장
-        geolocationCallback = callback
-        
-        //위치권한 확인 및 요청
-    }
-});
 
     function getLocation() {
     const tex=document.querySelector("#tex")
