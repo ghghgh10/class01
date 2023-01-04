@@ -43,9 +43,13 @@ getLocation();
 
 document.getElementById("button")
     .addEventListener("click", function(event) {
-        alert("Submit button is clicked!");
+      if (navigator.geolocation) { 
+    navigator.geolocation.getCurrentPosition(function(position){
+         alert("위도: " + position.coords.latitude +", 경도: " + position.coords.longitude);
         event.preventDefault();
-    });
+      })
+    }
+  });
 </script>
 	
 </body>
