@@ -18,17 +18,17 @@ section {
         }
         #main{ width: 100vw; height: 100vh;
             overflow: hidden;
-            background: url("../img/bg5.jpg") no-repeat;
+            background: url("../img/bg7.jpg") no-repeat;
             background-size: cover;
         }
 
         .container{
-            width: 250px; height: 380px;
+           /* width: 250px; height: 380px;
             transform-style: preserve-3d; transform: rotateX(-20deg) rotateY(20deg);
             animation:rotatebox 10s linear 0s infinite;
             background: url("../img/wheel5.png") no-repeat;
             background-size: contain;
-            position: relative; left: 20%; top: 250px;
+            position: relative; left: 20%; top: 250px;*/
 
         }
 

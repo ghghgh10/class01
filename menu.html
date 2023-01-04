@@ -1,146 +1,210 @@
 <!DOCTYPE html>
-<html lang="KO">
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <title>모이라 menu</title>
-    <link rel="stylesheet" href="css/mo2ra.css">
-    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
-    <!-- Demo styles -->
-    <style>
-      
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+  <title>모이라 메뉴</title>
+  <link rel="stylesheet" href="css/mo2ra.css">
+  <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Demo styles -->
+  <style>
+    html,
+    body {
+      position: relative;
+      height: 100%;
+    }
 
-      .swiper {
-        margin: 100px auto;
-        width: 200px;
-        height: 260px;
-        padding-top: 100px;
-        transform: scale(1.5);
-      }
+    body {
+      background: #eee;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
 
-      .swiper-slide {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 22px;
-        font-weight: bold;
-        color: #ededed;
-        text-align: center;
-      }
-      h1{
-            position: absolute;
-            left: 50%; top:5px; transform: translateX(-50%);
-            color: #fff;
-            z-index: 1000;
-            width: 200px; height: 39px;
+    body {
+      background: #fff;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
 
-      }
-      a{
-        font-style: none;
-      }
-      #sect>h1>img{
-            width: 200px; height: 39px;
-      }
-      .sel{
-        font-size: 1.5rem;
-        text-align: center;
-        color: #fff;
-      }
-      
+    html,
+    body {
+      position: relative;
+      height: 100%;
+    }
 
-      .swiper-slide:nth-child(1n) {
-        
-      }
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-      .swiper-slide:nth-child(2n) {
-        
-      }
+    a {
+      text-decoration: none;
+      color: #fff;
+    }
 
-      .swiper-slide:nth-child(3n) {
-        
-      }
+    .swiper {
+      width: 240px;
+      height: 320px;
+    }
 
-      .swiper-slide:nth-child(4n) {
-        
-      }
+    .swiper-slide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 18px;
+      font-size: 22px;
+      font-weight: bold;
+      color: #fff;
+    }
 
-      .swiper-slide:nth-child(5n) {
-       
-      }
+    .swiper-slide:nth-child(1n) {
+      background-color: #E0D3DE;
+    }
 
-      .swiper-slide:nth-child(6n) {
-        background-color: rgb(180, 10, 47);
-      }
+    .swiper-slide:nth-child(2n) {
+      background-color: #DCD2D0;
+    }
 
-      .swiper-slide:nth-child(7n) {
-        background-color: rgb(35, 99, 19);
-      }
+    .swiper-slide:nth-child(3n) {
+      background-color: #D8D0C1;
+    }
 
-      .swiper-slide:nth-child(8n) {
-        background-color: rgb(0, 68, 255);
-      }
+    .swiper-slide:nth-child(4n) {
+      background-color: #CBB8A9;
+    }
 
-      .swiper-slide:nth-child(9n) {
-        background-color: rgb(218, 12, 218);
-      }
+    .swiper-slide:nth-child(5n) {
+      background-color: #BFB69E;
+    }
 
-      .swiper-slide:nth-child(10n) {
-        background-color: rgb(54, 94, 77);
-      }
-      .pic3 img{
-        width: 90%;
-      }
-      .pic3{
-        margin-left: 20px;
-      }
-      
-    </style>
-  </head>
+    .swiper-slide:nth-child(6n) {
+      background-color: #B3B492;
+    }
 
-  <body>
-    <!-- Swiper -->
-<section id="sect">
-  <h1> <img src="img/moira3.png" alt=""></h1>
-    <div class="swiper mySwiper2">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide"><a href="spinmain.html" class="">룰 렛<img src="img/menu01.png" alt=""> </a></div>
-        <div class="swiper-slide"><a href="index.html" class="">사 다 리<img src="img/menu02.png" alt=""> </a></div>
-        <div class="swiper-slide"><a href="index.html" class="pic3"><img src="img/menu03.png" alt=""></a></div>
-        <div class="swiper-slide"><a href="drawing lots.html" class="pic3"><img src="img/menu04.png" alt=""></a></div>
-        <div class="swiper-slide"><a href="drawing lots3.html" class="pic3">제비 뽑기<img src="img/menu05.png" alt=""></a></div>
-        <div class="swiper-slide">Slide 6</div>
-        <div class="swiper-slide">Slide 7</div>
-        <div class="swiper-slide">Slide 8</div>
-        <div class="swiper-slide">Slide 9</div>
+    .swiper-slide:nth-child(7n) {
+      background-color: #6F686D;
+    }
+
+    .swiper-slide a {
+      display: block;
+      width: 240px;
+      height: 320px;
+      /* line-height: 320px; */
+      text-align: center;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .swiper-slide img {
+      width: 100%;
+    }
+
+    .swiper-pagination {
+      margin-top: 400px;
+    }
+
+    .modal {
+      width: 100vw;
+      max-width: 640px;
+      height: 100vh;
+      position: fixed;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 5;
+      padding: 30px;
+    }
+
+    .text_box {
+      width: 240px;
+      height: 100px;
+      margin: 40vh auto;
+      text-align: center;
+      color: #fff;
+      line-height: 1.2em;
+    }
+
+    .text_box p {
+      font-size: 16px;
+    }
+
+    .hide {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="modal">
+    <div class="text_box">
+      <p>더 많은 게임을 확인하시려면</p>
+      <br>
+      <p>화면을 좌우로 밀어보세요!</p>
+      <br>
+      <div style="height:10px"></div>
+      <div class="icon_box">
+        <i class="fa-solid fa-arrow-left-long fa-2x"></i>
+        <i class="fa-regular fa-hand-spock fa-3x"></i>
+        <i class="fa-solid fa-arrow-right-long fa-2x"></i>
       </div>
     </div>
-    <div class="sel" style="text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;">운명의 게임 선택</div>
-</section>
+  </div>
+  <!-- Swiper -->
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><a href="random.html" class="pic3">오늘 뭐먹지<img src="img/menu03.png" alt=""></a>
+      </div>
+      <div class="swiper-slide"><a href="spinmain.html" class="">룰 렛<img src="img/menu01.png" alt=""></a>
+      </div>
+      <div class="swiper-slide"><a href="ladder game.html" class="">사 다 리<img src="img/menu02.png" alt=""> </a>
+      </div>
+      <div class="swiper-slide"><a href="snake game.html" class="pic3">뱀을조심하라!<img src="img/menu04.png" alt=""></a>
+      </div>
+      <div class="swiper-slide"><a href="drawing lots3.html" class="pic3">제비
+          뽑기<!-- <img src="img/menu05.png" alt=""> --></a>
+      </div>
+      <div class="swiper-slide">Slide 6</div>
+      <div class="swiper-slide">Slide 7</div>
+      <div class="swiper-slide">Slide 8</div>
+      <div class="swiper-slide">Slide 9</div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
 
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 
-    <!-- Initialize Swiper -->
-    <script>
 
-      var swiper2 = new Swiper(".mySwiper2", {
-        grabCursor: true,
-        effect: "creative",
-        creativeEffect: {
-          prev: {
-            shadow: true,
-            translate: ["-120%", 0, -500],
-          },
-          next: {
-            shadow: true,
-            translate: ["120%", 0, -500],
-          },
-        },
-      });
-    
-    </script>
-  </body>
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      effect: "cards",
+      grabCursor: true,
+
+      pagination: {
+        el: ".swiper-pagination",
+        type: "progressbar",
+      },
+
+    });
+  </script>
+  <script>
+    document.querySelector('.modal').addEventListener('click', function () {
+      this.classList.add('hide');
+    })
+  </script>
+</body>
+
 </html>

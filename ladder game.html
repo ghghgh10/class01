@@ -57,7 +57,11 @@ table {
 }
 html, body{
     width:100%;
-    height: 100%;
+    /*height: 100%;*/
+}
+html{
+    background: url(img/abg.webp) no-repeat;
+    background-size: cover;
 }
 .landing{
     width: 100%;
@@ -80,7 +84,7 @@ html, body{
     position: relative;
     margin: 100px auto;
     z-index: 0;
-    top:200px;
+    top:100px;
 }
 .node{
     width: 0px;
@@ -143,7 +147,7 @@ html, body{
 .start-form{
     width:300px;
     height: 400px;
-    background-image: url("bg.png") ;
+    /*background-image: url("bg.png") ;*/
     background-repeat: no-repeat;
     background-position: 50% 30%;
     margin: 0 auto;
@@ -200,7 +204,7 @@ html, body{
     }
     
     .button.green {
-      background-color: #0f9d58;
+      background-color: #C852F7;
       color: #fff;
     }
     
@@ -323,16 +327,40 @@ input:focus ~ .highlight {
   to    { width:0; background:transparent; }
 }
 
-.but{
-    position: fixed;
-    top: 600px;
+.but a{
+    position: absolute;
+    bottom: -150px;
     margin: 0;
-    padding: 0;
+    padding: 15px;
     width: 200px;
-    left: 15%;
+    left: 50%;
+    transform: translateX(-50%) !important;
+    display: block;
+    box-sizing: border-box;
+    border: 1px solid #333;
+    text-align: center;
+    background-color: #ededed;
     
     }
-
+.text{
+    position: absolute; top:-60px; left: 50%; transform: translateX(-50%);
+    width: 200px; color: #f60c;
+}
+.info{
+    width: 50px; height: 50px; border-radius: 25px; background: #f60c;
+    display: inline-block; position: absolute; left: 50%; top: 50px;
+    transform: translateX(-50%);
+}
+.info .p1{
+    display: inline-block; width: 205px;
+    position: absolute; left: 50%; top: 60px;
+    transform: translateX(-50%);
+}
+.info .p2{
+    display: inline-block; width: 250px;
+    position: absolute; left: 50%; top: 460px;
+    transform: translateX(-50%);
+}
 
 </style>
 
@@ -342,7 +370,8 @@ input:focus ~ .highlight {
        <div class="start-form">
             <div class="landing-form">
                 <div class="group">      
-                  <input type="text" name="member" required value="3">
+                  <input type="text" name="member" required value="3" >
+                  <div class="text"></div>
                   <span class="highlight"></span>
                   <span class="bar"></span>
                   <label>참여자 수</label>
@@ -354,12 +383,16 @@ input:focus ~ .highlight {
             </div>
        </div>
     </div>
+    <div class="info">
+        <p class="p1">동그라미 버튼을 눌러주세요</p>
+        <p class="p2">승리와 패배는 수정 할수 있습니다.<p>
+    </div>
     <div id="ladder" class="ladder">
         <div class="dim"> <div class="bg"></div> </div>
         
          <canvas class="ladder_canvas" id="ladder_canvas"></canvas>
           <form class="but">
-        <input type="button" value="다시시작" onClick="window.location.reload()">
+        <a type="button" value="다시시작" onClick="window.location.reload()">다시시작</a>
       </form>
          
     </div>
@@ -380,14 +413,19 @@ input:focus ~ .highlight {
         canvasDraw();
     }
 
+    const text=document.querySelector(".text");
     $('#button').on('click', function(){
         var member = $('input[name=member]').val();
         if(member < 2){
-            return alert('최소 2명 이상 선택하세요.')
+            text.innerText=`최소 2명 이상 선택하세요.`;
+            return 
+            
         }
 
         if(member > 4){
-            return alert('너무 많아요.. ㅠㅠ')   
+            text.innerText=`4인게임 입니다.`;
+            return 
+            
         }
         $('#landing').css({
             'opacity': 0
@@ -407,14 +445,14 @@ input:focus ~ .highlight {
     function canvasDraw(){
         ladder.css({
             'width' :( widthNode-1) * 100 + 6,
-            'height' : (heightNode -1 ) * 25 + 6,
+            'height' : (heightNode -1 ) * 27 + 6,
             'background-color' : '#fff'
             
         });
         
        ladder_canvas
        .attr('width' , ( widthNode-1) * 100 + 6)
-       .attr('height' , ( heightNode-1) * 25 + 6);
+       .attr('height' , ( heightNode-1) * 30 + 6);
 
         setDefaultFootPrint();
         reSetCheckFootPrint();

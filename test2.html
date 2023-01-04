@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+  <div id="tex"></div>
+	<script>function getLocation() {
+    const tex=document.querySelector("#tex")
+  if (navigator.geolocation) { // GPS를 지원하면
+    navigator.geolocation.getCurrentPosition(function(position) {
+      tex.innerHTML=`${position.coords.latitude + ' ' + position.coords.longitude}`;
+    }, function(error) {
+      console.error(error);
+    }, {
+      enableHighAccuracy: false,
+      maximumAge: 0,
+      timeout: Infinity
+    });
+  } else {
+    tex.innerHTML=`('GPS를 지원하지 않습니다')`;
+  }
+}
+getLocation();
+
+</script>
+	
+</body>
+</html>
