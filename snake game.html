@@ -87,13 +87,14 @@ function generateWinners() {
   
   function flipCard() {
   this.classList.toggle("flipped");
-  var audio = document.getElementById('audio_play')
-     audio.play(); 
+  
   
   if(this.classList.contains('winner')){
     this.style.backgroundImage=  `url(img/bang.png)`;
     this.style.transform='scale(2)';
     this.style.transform='scale(1)';
+    var audio = document.getElementById('audio_play')
+     audio.play(); 
       
     document.getElementById("img").style.transform=`scale(2)`;
    document.getElementById("img").style.zIndex=`500`
