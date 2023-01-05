@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
   <title>모이라 메뉴</title>
   <link rel="stylesheet" href="css/mo2ra.css">
-  <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.1.js"></script> 
   <!-- Link Swiper's CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
@@ -14,6 +14,7 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- Demo styles -->
   <style>
+   
 
     body {
       background: #fff;
@@ -21,7 +22,7 @@
       font-size: 14px;
       color: #000;
       margin: 0;
-      padding: 0;      
+      padding: 0;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -30,13 +31,12 @@
     html,
     body {
       position: relative;
-      height: 100%;
-      width: 100%;
+       height: 100vh;
+      width: 100vw;
       overflow: hidden;
     }
 
-
-
+   
     a {
       text-decoration: none;
       color: #fff;
@@ -103,7 +103,7 @@
       margin-top: 400px;
     }
 
-    #popup_layer {
+    .modal {
       width: 100vw;
       max-width: 640px;
       height: 100vh;
@@ -153,21 +153,17 @@
     }
     .popup_box{
       position: relative;top:50%;left:50%; 
-      width:200px;
-      transform:translate(-50%, -50%);
-      z-index:1002;
-      box-sizing:border-box;
-      background:rgba(0,0,0,0.2);
-      text-align: center;
-      color: #fff;
-    }
-  
+      width:200px;transform:translate(-50%, -50%);
+      z-index:1002;box-sizing:border-box;background:#fff;
+      box-shadow: 2px 5px 10px 0px rgba(0,0,0,0.35);
+      -webkit-box-shadow: 2px 5px 10px 0px rgba(0,0,0,0.35);
+      -moz-box-shadow: 2px 5px 10px 0px rgba(0,0,0,0.35);}
   </style>
 </head>
 
 <body>
 <!-- ----------------- modal ---------------- -->
-<!--   <div class="modal">
+  <div class="modal">
     <div class="text_box">
       <p>더 많은 게임을 확인하시려면</p>
       <br>
@@ -180,58 +176,12 @@
         <i class="fa-solid fa-arrow-right-long fa-2x"></i>
       </div>
     </div>
-    <div class="modal-footer">
-        <div style="padding-right: 250px; text-decoration: underline; cursor: pointer;"> 
-          <span class="modal-today-close"> 오늘 하루 동안 보지 않기 </span> 
-        </div>
-        <a href="#" class="btn btn-default" data-dismiss="modal">닫기</a>
-      </div>
-  </div> -->
-<!--   <div id="parent">
-  <div class="modalWrap" onclick="closeModal()"></div>
-  <div id="modal">
-    <div class="text_box">
-      <p>더 많은 게임을 확인하시려면</p>
-      <br>
-      <p>화면을 좌우로 밀어보세요!</p>
-      <br>
-      <div style="height:10px"></div>
-      <div class="icon_box">
-        <i class="fa-solid fa-arrow-left-long fa-2x"></i>
-        <i class="fa-regular fa-hand-spock fa-3x"></i>
-        <i class="fa-solid fa-arrow-right-long fa-2x"></i>
-      </div><br><br><br>
-    <button onclick="closeModalDuringOneday()">오늘 하루 동안 이 창을 열지 않음</button>
   </div>
-</div>
-</div> -->
+    
+ 
 
-<div id="popup_layer">
-  <div class="popup_box">
-      <!--팝업 컨텐츠 영역-->
-      <div class="popup_cont">
-          <p>더 많은 게임을 확인하시려면</p>
-      <br>
-      <p>화면을 좌우로 밀어보세요!</p>
-      <br>
-      <div style="height:10px"></div>
-      <div class="icon_box">
-        <i class="fa-solid fa-arrow-left-long fa-2x"></i>
-        <i class="fa-regular fa-hand-spock fa-3x"></i>
-        <i class="fa-solid fa-arrow-right-long fa-2x"></i>
-      </div>
-      </div>
-      <!--팝업 버튼 영역-->
-      <div class="popup_btn">
-          <!--하루동안 보지않기-->
-          <br><br>
-          <a id="chk_today" href="javascript:closeToday();" class="close_day">하루동안 열지 않기</a> 
-          <!--7일간 보지않기-->
-          <!-- <a id="chk_today" href="javascript:closeToday();" class="close_day">Do not open for 7 days</a>-->
-          <a href="javascript:closePop();">Close</a>
-      </div>
-  </div>
-</div>
+
+
   <!-- Swiper -->
   <div class="swiper mySwiper">
     <div class="swiper-wrapper">
@@ -273,82 +223,12 @@
     });
   </script>
   <script>
-  // 쿠키 생성
-function setCookie( name, value, expiredays ) {  // 쿠키저장
-  var todayDate = new Date();  //date객체 생성 후 변수에 저장
-  todayDate.setDate( todayDate.getDate() + expiredays ); 
-     // 시간지정(현재시간 + 지정시간)
-  document.cookie = name + "=" + value + "; path=/; expires=" + todayDate.toUTCString() + ";"
-  //위 정보를 쿠키에 굽는다
-} 
-   
-  $(function(){
-  /*$(".popup_box").draggable({containment:'parent', scroll:false});*/ // 레이어 팝업 창 드래그 가능
-  //{containment:'parent', scroll:false} 화면 영역 밖으로 드래그 안됌.
-                
-  if(document.cookie.indexOf("popToday=close") < 0 ){      // 쿠키 저장여부 체크
-    document.getElementById("popup_layer").style.display = "block";
-    }else {
-    document.getElementById("popup_layer").style.display = "none"; 
-    }
-  });
-             
-//오늘하루만보기 닫기버튼 스크립트
-function closeToday() { 
-  setCookie( "popToday", "close" , 1  ); 
-  $("#popup_layer").css("display", "none");
-  document.getElementById("popup_layer").style.display = "none";
-}
-//그냥 닫기버튼 스크립트
-function closePop() { 
-  document.getElementById("popup_layer").style.display = "none";
-}
-  /*  document.querySelector('.modal').addEventListener('click', function () {
+
+   document.querySelector('.modal').addEventListener('click', function () {
       this.classList.add('hide');
-    })*/
-/* $(function(){
-    function setCookie(name, value, expiredays){
-  var today = new Date();
-
-  console.log(today.getDate())
-
-  today.setDate(today.getDate() + expiredays); // 현재시간에 하루를 더함 
-
-  document.cookie = name + '=' + escape(value) + '; expires=' + today.toGMTString();
-
-}
-  
-function getCookie(name) {
-
-  var cookie = document.cookie;
-  
-  if (document.cookie != "") {
-    var cookie_array = cookie.split("; ");
-    console.log(cookie_array)
-    for ( var index in cookie_array) {
-      var cookie_name = cookie_array[index].split("=");
-      if (cookie_name[0] == "mycookie") {
-        return cookie_name[1];
-      }
-    }
-  }
-  return;
-}
+    })
 
 
-$(".modal-today-close").click(function() {
-  $(".modal").modal("hide");
-  setCookie("mycookie", 'popupEnd', 1);
-})
-
-var checkCookie = getCookie("mycookie");
-  
-if(checkCookie == 'popupEnd') {
-  $(".modal").modal("hide");
-} else {
-  $(".modal").modal("show");  
-}
-});*/
   </script>
 </body>
 
