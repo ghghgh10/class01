@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
   <title>모이라 메뉴</title>
   <link rel="stylesheet" href="css/mo2ra.css">
-  <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.1.js"></script> 
   <!-- Link Swiper's CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
@@ -14,20 +14,7 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- Demo styles -->
   <style>
-    html,
-    body {
-      position: relative;
-      height: 100%;
-    }
-
-    body {
-      background: #eee;
-      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-      font-size: 14px;
-      color: #000;
-      margin: 0;
-      padding: 0;
-    }
+   
 
     body {
       background: #fff;
@@ -36,20 +23,20 @@
       color: #000;
       margin: 0;
       padding: 0;
-    }
-
-    html,
-    body {
-      position: relative;
-      height: 100%;
-    }
-
-    body {
       display: flex;
       justify-content: center;
       align-items: center;
     }
 
+    html,
+    body {
+      position: relative;
+       height: 100vh;
+      width: 100vw;
+      overflow: hidden;
+    }
+
+   
     a {
       text-decoration: none;
       color: #fff;
@@ -125,6 +112,28 @@
       z-index: 5;
       padding: 30px;
     }
+    .modal-footer{
+      width: 350px;
+      height: 100vh;
+      padding: 0px;
+      margin: 0;
+      top: 70%;
+      color: #fff;
+      text-align: center;
+      display: inline-block;
+      position: absolute;
+      padding: 0px !important;
+    }
+    .modal-today-close{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      text-align: center;
+      top: -20px;
+      width: 100%;
+    }
+
 
     .text_box {
       width: 240px;
@@ -142,10 +151,18 @@
     .hide {
       display: none;
     }
+    .popup_box{
+      position: relative;top:50%;left:50%; 
+      width:200px;transform:translate(-50%, -50%);
+      z-index:1002;box-sizing:border-box;background:#fff;
+      box-shadow: 2px 5px 10px 0px rgba(0,0,0,0.35);
+      -webkit-box-shadow: 2px 5px 10px 0px rgba(0,0,0,0.35);
+      -moz-box-shadow: 2px 5px 10px 0px rgba(0,0,0,0.35);}
   </style>
 </head>
 
 <body>
+<!-- ----------------- modal ---------------- -->
   <div class="modal">
     <div class="text_box">
       <p>더 많은 게임을 확인하시려면</p>
@@ -160,6 +177,11 @@
       </div>
     </div>
   </div>
+    
+ 
+
+
+
   <!-- Swiper -->
   <div class="swiper mySwiper">
     <div class="swiper-wrapper">
@@ -201,9 +223,12 @@
     });
   </script>
   <script>
-    document.querySelector('.modal').addEventListener('click', function () {
+
+   document.querySelector('.modal').addEventListener('click', function () {
       this.classList.add('hide');
     })
+
+
   </script>
 </body>
 
