@@ -23,6 +23,7 @@
   </section>
 	<script>
 
+
     function getLocation() {
     const tex=document.querySelector("#tex")
   if (navigator.geolocation) { // GPS를 지원하면
@@ -43,6 +44,7 @@ getLocation();
 
 document.getElementById("button")
     .addEventListener("click", function(event) {
+	
       if (navigator.geolocation) { 
     navigator.geolocation.getCurrentPosition(function(position){
          alert("위도: " + position.coords.latitude +", 경도: " + position.coords.longitude);
@@ -50,6 +52,8 @@ document.getElementById("button")
       })
     }
   });
+		
+window.android.grantAuthority("location");
 </script>
 	
 </body>
