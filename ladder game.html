@@ -79,6 +79,9 @@ html{
 
 .ladder_canvas{
     z-index: 999;
+    background-color:transparent;
+   
+
 }
 .ladder{
     position: relative;
@@ -102,6 +105,7 @@ html{
     position: absolute;
     top : -52px;
     text-align: center;
+    margin: -20px 0 0 0 ;
 }
 .user-wrap input{
     width:100%;
@@ -113,11 +117,11 @@ html{
 .user-wrap button{
     margin: 5px 0 0 0;    
     border:0;
-    width: 20px;
-    height: 20px;
-    border-radius: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
     text-align: center;
-    line-height: 20px;
+    line-height: 40px;
     font-weight: bolder;
     color: #fff;
     cursor: pointer;
@@ -348,7 +352,7 @@ input:focus ~ .highlight {
 }
 .info{
     width: 50px; height: 50px; border-radius: 25px; background: #f60c;
-    display: inline-block; position: absolute; left: 50%; top: 50px;
+    display: inline-block; position: absolute; left: 50%; top: 30px;
     transform: translateX(-50%);
 }
 .info .p1{
@@ -446,7 +450,7 @@ input:focus ~ .highlight {
         ladder.css({
             'width' :( widthNode-1) * 100 + 6,
             'height' : (heightNode -1 ) * 27 + 6,
-            'background-color' : '#fff'
+            'background-color' : 'transparent'
             
         });
         
@@ -682,7 +686,7 @@ input:focus ~ .highlight {
                 var node = x + '-' + y;
                 var nodeInfo  = GLOBAL_FOOT_PRINT[node];
                 if(nodeInfo["change"] && nodeInfo["draw"] ){
-                     stokeLine(x, y ,'w' , 'r' , '#ddd' , '2')
+                     stokeLine(x, y ,'w' , 'r' , '#333' , '2')
                 }else{
 
                 }
@@ -737,7 +741,7 @@ input:focus ~ .highlight {
          for(var y =0; y < heightNode-1; y++){
             html += '<tr>';
             for(var x =0; x <widthNode-1 ; x++){
-                html += '<td style="width:98px; height:25px; border-left:2px solid #ddd; border-right:2px solid #ddd;"></td>';
+                html += '<td style="width:98px; height:25px; border-left:5px solid #333; border-right:5px solid #333;"></td>';
             }
             html += '</tr>';
         }
