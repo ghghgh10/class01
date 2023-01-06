@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="KO">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>찾아라 맵</title>
+    <script type="module" src="https://code.jquery.com/jquery-3.6.1.js"></script>
+</head>
+<style>
+    body,
+    div,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    input,
+    button,
+    form {
+        margin: 0px;
+        padding: 0px;
+    }
+
+
+
+    @font-face {
+        font-family: 'Humanbumsuk';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Humanbumsuk.woff2') format('woff2');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    .map_wrap {
+        width: 100%;
+        position: relative;
+    }
+
+    .mymap {
+        width: 100%;
+        height: 780px;
+        overflow: hidden;
+    }
+
+    .formInner {
+        /* 폼 테그 감고고 있는 놈*/
+        width: 95%;
+        height: 50px;
+        color: #fff;
+        font-weight: bold;
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        z-index: 1000;
+        font-family: 'Humanbumsuk';
+    }
+
+    .formInner>form>.mainInput {
+        /*그 검색어(키워드) 입력받는놈*/
+        width: 140px;
+        height: 46px;
+        padding-left: 10px;
+        line-height: 26px;
+        color: rgb(23, 228, 174);
+        font-size: 16px;
+        background: #000;
+    }
+
+    .formInner>form>.mainInput::placeholder {
+        /*그 입력 하기전 안내 (검색어를 입력하세요 )? 문구*/
+        color: rgba(0, 191, 255, 0.5);
+        color: #fff;
+        font-weight: bold;
+        line-height: 46px;
+        font-family: 'Humanbumsuk';
+        font-size: 16px;
+
+    }
+
+
+    .formInner>form>button {
+        /*폼 안에 버튼들 */
+        width: 40px;
+        height: 46px;
+        color: rgb(0, 0, 0);
+        font-family: 'Humanbumsuk';
+        line-height: 46px;
+        border-radius: 10px;
+        font-size: 18px;
+        font-weight: bold;
+        box-shadow: 1px 2px 2px #000;
+    }
+
+    .formInner>form>.searchBtn {
+        /* 검색 버튼 */
+        position: absolute;
+        right: 120px;
+        top: 3px;
+    }
+
+    .formInner>form>.mylocation {
+        /* 내 위치 확인 하기?  버튼*/
+        position: absolute;
+        right: 20px;
+        top: 3px;
+    }
+
+    .formInner>form>.gomainpg {
+        /*메인으로 돌아가는 버튼*/
+        position: absolute;
+        right: 70px;
+        top: 3px;
+    }
+</style>
+
+<body>
+    <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ea3db63fe64092742d0d775bed595f3b&libraries=services"></script>
+    <div class="map_wrap">
+        <div class="mymap"></div>
+        <div class="formInner">
+            <form onsubmit="; return false;">
+                <input type="text" placeholder="검색어를이입력해주세요" class="mainInput">
+                <button type="submit" class="searchBtn">검색</button>
+                <button type="button" class="mylocation">위치</button>
+                <button type="button" class="gomainpg">메인</button>
+            </form>
+        </div>
+        <ul class="placesList"></ul> <!-- 이부분에 검색해서 나온 아이템 수 만큼 li 를 js로 만들어 넣을예정 -->
+        <div class="pagination"></div> <!-- 페이지 1 2 3 뭐 이런거 들어갈 부분-->
+    </div>
+
+
+
+    <script>
+
+
+
+
+
+        // 지도생성
+        const mapContainer = document.querySelector('.mymap'), // 지도를 표시할 div 
+            mapOption = {
+                center: new kakao.maps.LatLng(37.3405143, 126.8357822), // 지도의 중심좌표 우리집
+                level: 4 // 360 * 640 기준으로 가득참 
+            };
+        const map = new kakao.maps.Map(mapContainer, mapOption);  // 지도를 생성합니다  
+
+        // 주소-좌표 변환 객체를 생성합니다
+        var geocoder = new kakao.maps.services.Geocoder();
+
+        // 주소로 좌표를 검색합니다
+        geocoder.addressSearch('경기도 안산시 상록구 월피동', function (result, status) {
+
+            // 정상적으로 검색이 완료됐으면 
+            if (status === kakao.maps.services.Status.OK) {
+
+                var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+                console.log(coords);
+
+                // 결과값으로 받은 위치를 마커로 표시합니다
+                var marker = new kakao.maps.Marker({
+                    map: map,
+                    position: coords
+                });
+
+                // 인포윈도우로 장소에 대한 설명을 표시합니다
+                var infowindow = new kakao.maps.InfoWindow({
+                    content: '<div style="width:150px;text-align:center;padding:6px 0;">현재위치</div>'
+                });
+                infowindow.open(map, marker);
+
+                // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+                map.setCenter(coords);
+            }
+        });
+
+
+
+    </script>
+</body>
+
+</html>
